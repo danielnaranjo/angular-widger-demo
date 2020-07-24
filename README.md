@@ -1,27 +1,28 @@
-# AngularWebComponent
+Running
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
+```
+"start": "ng serve",
+"build": "ng build",
+"export": "ng build --prod && cat dist/angular-web-component/runtime-es2015*.js dist/angular-web-component/polyfills-es2015*.js dist/angular-web-component/main-es5*.js > export/info-box.js && cp dist/angular-web-component/styles.*.css export/info-box.css && cp dist/angular-web-component/index.html export/index.html",
+"live": "npx http-server export",
+```
 
-## Development server
+Embed 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+  <info-box signupTitle="Hola" thankyouMessage="Daniel"></info-box>
+  <script src='https://raw.githack.com/danielnaranjo/angular-widger-demo/dev/export/info-box.js'></script>
+```
+or
+```
+  <script type="text/javascript" charset="utf-8">
+    window.addEventListener('load', () => {
+      const widgetElement = document.createElement('info-box')
+      // document.body is not necessary here, it can be any other element
+      document.body.appendChild(widgetElement) 
+      const widgetCode = document.createElement('script')
+      widgetCode.src = 'https://raw.githack.com/danielnaranjo/angular-widger-demo/dev/export/info-box.js'
+      document.body.appendChild(widgetCode)
+    })
+</script>
+```
